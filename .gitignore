@@ -1,0 +1,5 @@
+*.swp
+*.swo
+*.lock
+*.log
+node_modules
