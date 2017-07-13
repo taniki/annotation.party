@@ -1,9 +1,10 @@
 /*
     ./webpack.config.js
 */
-const path = require('path');
+const path = require('path')
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: './client/index.html',
@@ -24,10 +25,16 @@ module.exports = {
     loaders: [
       { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
       { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ }
+			//{ test: /\.(png|svg|jpg|gif)$/, use: [ 'file-loader' ] }
     ]
   },
 
-	plugins: [HtmlWebpackPluginConfig],
+	plugins: [
+		HtmlWebpackPluginConfig,
+		new CopyWebpackPlugin([
+			{ from: './assets', to: './assets' }
+		])
+	],
 
 	devServer: {
 	//	hot:true
