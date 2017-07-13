@@ -1,4 +1,7 @@
 import fetch from 'isomorphic-fetch'
+import config from 'config'
+
+console.log("config", config)
 
 export const REQUEST_ANNOTATIONS = 'REQUEST_ANNOTATIONS'
 export function requestAnnotations(url){
@@ -20,7 +23,9 @@ export function receiveAnnotations(url, json) {
 
 export const FETCH_ANNOTATIONS = 'FETCH_ANNOTATIONS'
 
-export function fetchAnnotations(url){
+export function fetchAnnotations(){
+	let url = config.api.url+"/annotations.json"
+
 	return function(dispatch){
 		dispatch(requestAnnotations(url))
 	

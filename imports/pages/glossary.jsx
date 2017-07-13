@@ -6,6 +6,8 @@ import Annotation from '../ui/Annotation.jsx';
 import MainNav from '../ui/MainNav.jsx';
 import Sidebar from '../ui/Sidebar.jsx';
 
+import config from 'config'
+
 // App component - represents the whole app
 export default class GlossaryPage extends Component {
 	index() {
@@ -21,8 +23,7 @@ export default class GlossaryPage extends Component {
       <IntlProvider locale="en">
       <div className="container">
 				
-				<h1 className="mb-5 mt-5">Net Rights + Cryptography + Decentralization</h1>
-				<h2>Glossary</h2>
+				<h1 className="mb-5 mt-5">{ config.group.title }</h1>
 
 				<MainNav />
 

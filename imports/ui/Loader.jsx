@@ -18,7 +18,7 @@ export class LoaderComponent extends Component {
 
 		this.nanobar = new Nanobar(opt)
 
-		this.nanobar.go(10);
+		// this.nanobar.go(10);
 	}
 
 	componentDidUpdate(){

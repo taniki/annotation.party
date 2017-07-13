@@ -33,7 +33,7 @@ let store = createStore(
 	)
 )
 
-store.dispatch(fetchAnnotations('https://taniki.github.io/netrights/data/annotations.json'))
+store.dispatch(fetchAnnotations())
 
 export const renderRoutes = () => (
   <Router history={hashHistory}>

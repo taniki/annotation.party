@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 import { IntlProvider } from 'react-intl';
 import { connect } from 'react-redux'
 
@@ -9,6 +10,7 @@ import Loader from '../ui/Loader.jsx'
 import MainNav from '../ui/MainNav.jsx';
 import Sidebar from '../ui/Sidebar.jsx';
 
+import config from 'config'
 
 // App component - represents the whole app
 export class AnnotationsPage extends Component {
@@ -44,7 +46,7 @@ export class AnnotationsPage extends Component {
   }
 
 	render() {
-    return (
+		return (
       <IntlProvider locale="en">
 			<div>
 
@@ -52,7 +54,7 @@ export class AnnotationsPage extends Component {
 
 			<div className="container">
 				
-				<h1 className="mb-5 mt-5">Net Rights + Cryptography + Decentralization</h1>
+				<h1 className="mb-5 mt-5">{ config.group.title }</h1>
 
 				<MainNav />
 
@@ -75,6 +77,7 @@ export class AnnotationsPage extends Component {
 }
 
 AnnotationsPage.propTypes = {
+  title: PropTypes.string,
   annotations: PropTypes.array
 }
 

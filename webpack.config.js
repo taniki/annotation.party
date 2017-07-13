@@ -2,6 +2,8 @@
     ./webpack.config.js
 */
 const path = require('path')
+const config = require('config')
+const fs = require('fs')
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
@@ -11,6 +13,8 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   filename: 'index.html',
   inject: 'body'
 });
+
+fs.writeFileSync(path.resolve(__dirname, 'build/client.json'), JSON.stringify(config))
 
 module.exports = {
   entry: './client/main.jsx',
@@ -38,5 +42,11 @@ module.exports = {
 
 	devServer: {
 	//	hot:true
+	},
+
+	resolve: {
+		alias: {
+			config: path.resolve(__dirname, 'build/client.json')
+		}
 	}
 }

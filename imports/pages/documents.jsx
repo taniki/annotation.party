@@ -13,6 +13,8 @@ import MainNav from '../ui/MainNav.jsx';
 import Sidebar from '../ui/Sidebar.jsx';
 import Loader from '../ui/Loader.jsx'
 
+import config from 'config'
+
 class DocumentsCategory extends Component {
 	documents(){
 		let documents = this.props.category.documents;
@@ -67,7 +69,7 @@ export class DocumentsPage extends Component {
 			<Loader />
 			
 			<div className="container">				
-				<h1 className="mb-5 mt-5">Net Rights + Cryptography + Decentralization</h1>
+				<h1 className="mb-5 mt-5">{ config.group.title  }</h1>
 
 				<MainNav />
 
